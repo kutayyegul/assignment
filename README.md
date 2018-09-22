@@ -62,6 +62,6 @@ Then, checking for company names which are contains Group in the response body j
 
 `https://jsonplaceholder.typicode.com/users`
 
-![Postman Test Results](http://prntscr.com/kxeale)
+![Postman Test Results](https://github.com/kutayyegul/assignment/blob/master/postman.png)
 
 This Postman tests can be found at `PostmanTest.js` file under src folder.
