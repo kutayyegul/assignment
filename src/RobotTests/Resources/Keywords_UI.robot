@@ -17,7 +17,7 @@ Input Message on Form
     Input Text  ${TEXT_FIELD}   ${TEXT}
 
 
-PASS CAPTCHA
+Pass Captcha
     ${TEXT}=  Get Text    ${CAPTCHA}
     ${Result}=  Evaluate  ${TEXT}
     Input Text   ${CAPTCHA_FIELD}    ${Result}

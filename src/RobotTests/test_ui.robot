@@ -25,7 +25,7 @@ User Must Fill The Form 2 Successfully
        Set Selenium Speed   0.1 seconds
        Input User Name on Form  ${NAME_FIELD2}    TEST_NAME
        Input Message on Form  ${TEXT_FIELD2}   TEST_TEXT
-       PASS CAPTCHA
+       Pass Captcha
        Click Button  ${SUBMIT_BUTTON2}
        Wait Until Page Contains    Success
        Close Browser
