@@ -1,9 +1,6 @@
 from locators import MainPageLocators
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import *
 
 
 class BasePage(object):
@@ -15,23 +12,40 @@ class BasePage(object):
 
 class MainPage(BasePage):
 
-    def fill_name(self):
-        element = self.driver.find_element(*MainPageLocators.Name_Field)
-        element.send_keys("osman")
+    def fill_name(self, formNumber):
+        if formNumber == 1:
+            locator = MainPageLocators.Name_Field
+        elif formNumber == 2:
+            locator = MainPageLocators.Name_Field2
+        element = self.driver.find_element(*locator)
+        element.send_keys("USER_NAME USER_SURNAME")
 
-    def fill_text(self):
-        element = self.driver.find_element(*MainPageLocators.Text_Field)
-        element.send_keys("osmancan 2222")
+    def fill_text(self, formNumber):
+        if formNumber == 1:
+            locator = MainPageLocators.Text_Field
+        elif formNumber == 2:
+            locator = MainPageLocators.Text_Field2
+        element = self.driver.find_element(*locator)
+        element.send_keys("FORM FIELD TO TYPE A MESSAGE FOR USERS")
 
-    def submit_button(self):
-        element = self.driver.find_element(*MainPageLocators.Submit_Button)
+    def submit_button(self, formNumber):
+        if formNumber == 1:
+            locator = MainPageLocators.Submit_Button
+        elif formNumber == 2:
+            locator = MainPageLocators.Submit_Button2
+        element = self.driver.find_element(*locator)
         element.click()
 
-    def message(self):
-        #element = self.driver.find_element(*MainPageLocators.success)
-        element = self.wait.until(EC.element_to_be_clickable(MainPageLocators.success))
+    def message(self, formNumber):
+        if formNumber == 1:
+            locator = MainPageLocators.Success_Message
+        elif formNumber == 2:
+            locator = MainPageLocators.Success_Message2
+        element = self.wait.until(EC.element_to_be_clickable(locator))
         return element.text
 
-
-if __name__ == "__main__":
-    import sys
+    def passCaptcha(self):
+        element = self.wait.until(EC.element_to_be_clickable(MainPageLocators.Captcha))
+        operation = eval(element.text)
+        element2 = self.wait.until(EC.element_to_be_clickable(MainPageLocators.Captcha_Field))
+        element2.send_keys(operation)

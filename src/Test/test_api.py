@@ -18,14 +18,9 @@ class TestAPI(unittest.TestCase):
 
     def test_should_return_group_companies(self):
         r = requests.get(self.base_url + "users")
-
         output = r.json()
-
-
         for value in output:
-
             companyName = value["company"]["name"]
-
             if "Group" in companyName:
                 print(companyName)
 
