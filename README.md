@@ -74,7 +74,7 @@ For python selenium suites. There are two option to run the test.
 
 1. Running via terminal command line.
     * Open terminal and navigate the folder that contain test_ui.py and test_api.py files.
-    * Type `python -m unittest test_ui.py` or `python -m unittest test_api.py`
+    * Type `python -m unittest test_ui` or `python -m unittest test_api`
     or `python -m unittest discover`
 2. Running `load.py` file 
 
