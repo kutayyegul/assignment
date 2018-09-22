@@ -65,3 +65,21 @@ Then, checking for company names which are contains Group in the response body j
 ![Postman Test Results](https://github.com/kutayyegul/assignment/blob/master/postman.png)
 
 This Postman tests can be found at `PostmanTest.js` file under src folder.
+
+###### Running Tests
+
+To be able to run the tests. Requirements need to be installed correctly.
+
+For python selenium suites. There are two option to run the test. 
+
+1. Running via terminal command line.
+    * Open terminal and navigate the folder that contain test_ui.py and test_api.py files.
+    * Type `python -m unittest test_ui.py` or `python -m unittest test_api.py`
+    or `python -m unittest discover`
+2. Running `load.py` file 
+
+For Robot suites
+
+1. Open terminal and navigate the folder that contain test_ui.robot and test_api.robot files.
+2. Type `pybot test_ui.robot` or `pybot test_api.robot`
+
