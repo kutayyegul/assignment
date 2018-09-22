@@ -31,3 +31,7 @@ class MainPage(BasePage):
         #element = self.driver.find_element(*MainPageLocators.success)
         element = self.wait.until(EC.element_to_be_clickable(MainPageLocators.success))
         return element.text
+
+
+if __name__ == "__main__":
+    import sys

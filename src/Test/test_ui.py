@@ -1,6 +1,6 @@
 import unittest
 from selenium import webdriver
-from page import MainPage
+from Pages.page import MainPage
 
 
 class TestUI(unittest.TestCase):
@@ -15,7 +15,6 @@ class TestUI(unittest.TestCase):
         main_page.fill_name()
         main_page.fill_text()
         main_page.submit_button()
-        print(main_page.message())
         assert main_page.message(), "Form filled out successfully"
 
     def tearDown(self):
