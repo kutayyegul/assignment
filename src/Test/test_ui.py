@@ -9,22 +9,15 @@ class TestUI(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.get("https://www.ultimateqa.com/filling-out-forms/")
 
-    def test_should_fill_form(self):
+    def test_should_fill_form_with_captcha(self):
 
         main_page = MainPage(self.driver)
-        main_page.fill_name(1)
-        main_page.fill_text(1)
-        main_page.submit_button(1)
-        assert main_page.message(1), "Form filled out successfully"
-
-    def test_should_fill_form_2(self):
-
-        main_page = MainPage(self.driver)
-        main_page.fill_name(2)
-        main_page.fill_text(2)
+        main_page.is_opened()
+        main_page.fill_name()
+        main_page.fill_text()
         main_page.passCaptcha()
-        main_page.submit_button(2)
-        assert main_page.message(2), "Success"
+        main_page.submit_button()
+        assert main_page.message(), "Success"
 
     def tearDown(self):
         self.driver.close()

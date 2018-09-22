@@ -4,9 +4,11 @@ Library  Selenium2Library
 Resource  Variables.robot
 
 *** Keywords ***
-Open URL in Browser
-    [Arguments]    ${BROWSER}
+Open URL in Chrome Browser
     Open Browser    ${LOGIN URL}    ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Speed   0.1 seconds
+    Title Should Be     Filling Out Forms - Ultimate QA
 
 Input User Name on Form
     [Arguments]    ${NAME_FIELD}    ${NAME}

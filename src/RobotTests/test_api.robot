@@ -1,16 +1,21 @@
 *** Settings ***
-Documentation  Test For API
-Library  RequestsLibrary
-Library  Collections
-Resource  Resources/Variables.robot
+Documentation  Test to verify that API response meet the expectations when a user
+...            call the API.
+...            As a Note : At first, I put all three steps into a 1 Test Cases then I
+...            seperate it because of response time is not less than 200ms so this cause a
+...            failure for that case. So, I seperated 3 small test cases to get Pass result for
+...            other cases.
+
 Resource  Resources/Keywords_API.robot
 
+Suite Setup  Create a Session for API
+
 *** Test Cases ***
-API TEST DEMO
-    [Documentation]  adadads
-    Create Session      API     ${url}
-    ${resp}=	get request  API    /users
-    Should Be Equal As Strings	${resp.status_code}	200
-    Response Time Should Be Less Than 200ms  ${resp.elapsed.total_seconds()}
-    ${JSON}=    Set Variable    ${resp.json()}
-    Iteration Should Print Group Companies      ${JSON}
+Status Check For API
+    Response Should Return 200 Code
+
+Response Time Check For API
+    Response Time Should Be Less Than 200ms
+
+Retrieve JSON data
+    Iteration Should Print Group Companies
