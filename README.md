@@ -1,7 +1,7 @@
 # Python Automation and Robot Framework
 
-This project consist of 2 seperate automation types. One of them, python binding selenium,
-other one is Robot Framework. Both automation suites tests UI and API cases.
+This project consists of 2 separate automation types. One of them, python binding selenium,
+another one is Robot Framework. Both automation suites test UI and API cases.
 
 Selenium Bindings test suites are under Test Folder. Robot Framework
 Suites are under RobotTests Folder.
@@ -9,7 +9,7 @@ Suites are under RobotTests Folder.
 ###### Requirements 
 
 There are few modules need to be installed before running the tests.
-You can install this modules via below commands.
+You can install these modules via below commands.
 
 * `pip install selenium`
 * `pip install requests`
@@ -34,7 +34,7 @@ And also there are some simple cases on API;
 1. Do a GET request to the /users endpoint
 2. Validate the response code to be 200
 3. Validate the response time to be less than 200ms
-4. Iterate over all elements of the json response body
+4. Iterate over all elements of the JSON response body
 and print out all company names ending with “ Group”
 
 This test suites are **`test_api.py`** and **`test_api.robot`**
@@ -44,10 +44,10 @@ This test suites are **`test_api.py`** and **`test_api.robot`**
 
 **UI TEST**
 
-For the UI suites, Both form is tested in Robot Framework. For Selenium Python side, I choose to
+For the UI suites, Both forms are tested in Robot Framework. For Selenium Python side, I choose to
 remove the case for standard form and the form with captcha case is remained. 
 
-In both framework, there is a title verification after the URL loaded. Then name fields and 
+In both frameworks, there is a title verification after the URL loaded. Then name fields and 
 message fields are filled. For the captcha case, Captcha operation is calculated by `eval`
 function then result is filled the captcha area. After that, form is submitted and checking 
 for success message on the page.
