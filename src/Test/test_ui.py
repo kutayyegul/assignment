@@ -7,16 +7,8 @@ import platform
 class TestUI(unittest.TestCase):
 
     def setUp(self):
-
-        operating_system = platform.system()
-        if operating_system == "Darwin":
-            path = "./Drivers/chromedriver"
-        elif operating_system == "Windows":
-            path = "./Drivers/chromedriver.exe"
-        else:
-            path = "./Drivers/chromedriverLinux"
-
-        self.driver = webdriver.Chrome(executable_path=path)
+        
+        self.driver = webdriver.Chrome()
         self.driver.get("https://www.ultimateqa.com/filling-out-forms/")
 
     def test_should_fill_form_with_captcha(self):
