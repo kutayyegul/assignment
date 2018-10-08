@@ -13,7 +13,7 @@ class TestAPI(unittest.TestCase):
 
     def test_should_be_less_than_200ms(self):
         r = requests.get(self.base_url + "users")
-        print r.elapsed.total_seconds()
+        print (r.elapsed.total_seconds())
         assert r.elapsed.total_seconds() <= 0.200
 
     def test_should_return_group_companies(self):
