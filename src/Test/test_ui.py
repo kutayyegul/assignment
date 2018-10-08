@@ -10,9 +10,10 @@ class TestUI(unittest.TestCase):
 
     def setUp(self):
         options = webdriver.ChromeOptions()
+        capabilities = DesiredCapabilities.CHROME
         self.driver = webdriver.Remote(
-            command_executor='http://127.0.0.1:4444/wd/hub',
-            desired_capabilities=options.to_capabilities())
+            command_executor="http://localhost:4444/wd/hub",
+            desired_capabilities=capabilities)
 
         self.driver.get("https://www.ultimateqa.com/filling-out-forms/")
 
