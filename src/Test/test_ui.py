@@ -9,18 +9,11 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 class TestUI(unittest.TestCase):
 
     def setUp(self):
-
-        operating_system = platform.system()
-        if operating_system == "Darwin":
-            path = "./Drivers/chromedriver"
-        elif operating_system == "Windows":
-            path = "./Drivers/chromedriver.exe"
-        else:
-            path = "./Drivers/chromedriverLinux"
-
+        options = webdriver.ChromeOptions()
         self.driver = webdriver.Remote(
-   command_executor='http://127.0.0.1:4444/wd/hub',
-   desired_capabilities=DesiredCapabilities.CHROME)
+            command_executor='http://127.0.0.1:4444/wd/hub',
+            desired_capabilities=options.to_capabilities())
+
         self.driver.get("https://www.ultimateqa.com/filling-out-forms/")
 
     def test_should_fill_form_with_captcha(self):
