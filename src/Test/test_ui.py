@@ -9,12 +9,9 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 class TestUI(unittest.TestCase):
 
     def setUp(self):
-        options = webdriver.ChromeOptions()
-        capabilities = DesiredCapabilities.CHROME
         self.driver = webdriver.Remote(
-            command_executor="http://localhost:4444/wd/hub",
-            desired_capabilities=capabilities)
-
+            command_executor='http://0.0.0.0:4444/wd/hub',
+            desired_capabilities=DesiredCapabilities.CHROME)
         self.driver.get("https://www.ultimateqa.com/filling-out-forms/")
 
     def test_should_fill_form_with_captcha(self):
