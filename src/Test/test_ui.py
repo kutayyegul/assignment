@@ -2,6 +2,8 @@ import unittest
 from selenium import webdriver
 from Pages.page import MainPage
 import platform
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
 
 
 class TestUI(unittest.TestCase):
@@ -16,7 +18,9 @@ class TestUI(unittest.TestCase):
         else:
             path = "./Drivers/chromedriverLinux"
 
-        self.driver = webdriver.Chrome(executable_path=path)
+        self.driver = webdriver.Remote(
+   command_executor='http://127.0.0.1:4444/wd/hub',
+   desired_capabilities=DesiredCapabilities.CHROME)
         self.driver.get("https://www.ultimateqa.com/filling-out-forms/")
 
     def test_should_fill_form_with_captcha(self):
