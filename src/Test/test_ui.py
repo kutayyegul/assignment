@@ -11,7 +11,7 @@ class TestUI(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Remote(
             command_executor='http://0.0.0.0:4444/wd/hub',
-            desired_capabilities=DesiredCapabilities.CHROME)
+            )
         self.driver.get("https://www.ultimateqa.com/filling-out-forms/")
 
     def test_should_fill_form_with_captcha(self):
