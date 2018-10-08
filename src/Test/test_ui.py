@@ -23,7 +23,8 @@ class TestUI(unittest.TestCase):
         chrome_options.add_argument("--disable-gpu")
 
 
-        self.driver = webdriver.Chrome(executable_path=path, chrome_options=chrome_options)
+        ##self.driver = webdriver.Chrome(executable_path=path, chrome_options=chrome_options)
+        self.driver = webdriver.Remote(desired_capabilities=DesiredCapabilities.CHROME, command_executor='http://167.99.209.91:4444/wd/hub')
         self.driver.get("https://www.ultimateqa.com/filling-out-forms/")
 
     def test_should_fill_form_with_captcha(self):
@@ -38,6 +39,7 @@ class TestUI(unittest.TestCase):
 
     def tearDown(self):
         self.driver.close()
+        self.driver.quit()
 
 
 if __name__ == "__main__":
